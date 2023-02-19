@@ -27,6 +27,11 @@ class UserService:
         self.dao.update(user_d)
         return self.dao
 
+    def change_password(self, user_d):
+        user_d['password'] = self.get_hash(user_d['password_2'])
+        self.dao.change_password(user_d)
+        return self.dao
+
     def delete(self, uid):
         self.dao.delete(uid)
 
@@ -48,18 +53,3 @@ class UserService:
             PWD_HASH_ITERATIONS
         )
         return hmac.compare_digest(hash_digest, decode_digest)
-
-    # def get_hash(self, password):
-    #     hash_digest = hashlib.pbkdf2_hmac(
-    #         'sha256',
-    #         password.encode('utf-8'),
-    #         PWD_HASH_SALT,
-    #         PWD_HASH_ITERATIONS
-    #     )
-    #     return hash_digest
-    #
-    # def check_password(self, password, input_password):
-    #     password_hash = self.get_hash(password)
-    #     input_password_hash = self.get_hash(input_password)
-    #
-    #     return hmac.compare_digest(password_hash, input_password_hash)

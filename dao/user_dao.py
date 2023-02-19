@@ -29,9 +29,14 @@ class UserDAO:
         user = self.get_one_by_id(user_d.get("id"))
         user.name = user_d.get("name")
         user.surname = user_d.get("surname")
-        # user.email = user_d.get("email")
-        user.password = user_d.get("password")
         user.favorite_genre_id = user_d.get("favorite_genre_id")
+
+        self.session.add(user)
+        self.session.commit()
+
+    def change_password(self, user_d):
+        user = self.get_one_by_id(user_d.get("id"))
+        user.password = user_d.get("password")
 
         self.session.add(user)
         self.session.commit()
