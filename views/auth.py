@@ -1,9 +1,10 @@
-from flask import request
+from flask import request, abort
 from flask_restx import Resource, Namespace
 
 from implemented import auth_service
 
 auth_ns = Namespace('auth')
+
 
 @auth_ns.route('/register')
 class AuthRegisterView(Resource):
@@ -21,17 +22,17 @@ class AuthLoginView(Resource):
         password = data.get('password')
 
         if None in [email, password]:
-            return 401
+            abort(401)
 
         tokens = auth_service.generate_token(email, password)
-        return tokens, 201
+        return tokens, 200
 
     def put(self):
         data = request.json
         token = data.get('refresh_token')
 
         if token is None:
-            return 401
+            abort(401)
 
         tokens = auth_service.refresh_token(token)
-        return tokens, 201
+        return tokens, 200

@@ -38,5 +38,5 @@ class AuthService:
         return self.generate_token(email, None, is_refresh=True)
 
     def register_user(self, user_d):
-        return self.user_service.dao.create(user_d)
+        return self.user_service.create(user_d)
 
