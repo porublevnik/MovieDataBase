@@ -16,25 +16,3 @@ class MovieDAO:
 
     def get_one_by_id(self, mid: int):
         return self.session.query(Movie).get(mid)
-
-    # def create(self, data):
-    #     movie = Movie(**data)
-    #
-    #     self.session.add(movie)
-    #     self.session.commit()
-    #
-    #     return movie
-    #
-    # def update(self, movie):
-    #
-    #     self.session.add(movie)
-    #     self.session.commit()
-    #
-    #     return movie
-    #
-    # def delete(self, movie):
-    #
-    #     self.session.delete(movie)
-    #     self.session.commit()
-
-    

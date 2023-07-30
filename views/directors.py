@@ -15,12 +15,6 @@ class DirectorsView(Resource):
         directors = director_service.get_all(filters)
         return directors_schema.dump(directors), 200
 
-    # @admin_required
-    # def post(self):
-    #     data = request.json
-    #     director_service.create(data)
-    #     return "Director added", 201
-
 
 @director_ns.route('/<int:did>')
 class DirectorView(Resource):
@@ -30,19 +24,3 @@ class DirectorView(Resource):
         if director is None:
             return 'Director not found', 404
         return director_schema.dump(director), 200
-
-    # @admin_required
-    # def put(self, did):
-    #     data = request.json
-    #     data['id'] = did
-    #     if director_service.get_one_by_id(did) is None:
-    #         return 'Director not found', 404
-    #     director_service.update(data)
-    #     return "Director updated", 201
-    #
-    # @admin_required
-    # def delete(self, did):
-    #     if director_service.get_one_by_id(did) is None:
-    #         return 'Director not found', 404
-    #     director_service.delete(did)
-    #     return "Director deleted", 201

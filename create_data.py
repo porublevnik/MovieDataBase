@@ -212,7 +212,7 @@ data = {
     "users": [
         {"name": "vasya", "surname": "pupkin", "email": "vasyapupkin@gmail.com", "password": "my_little_pony", "favorite_genre_id": 1},
         {"name": "oleg", "surname": "orlov", "email": "olegorlov@gmail.com", "password": "qwerty", "favorite_genre_id": 2},
-        {"name": "oleg", "surname": "ivanov", "email": "olegivanov@gmail.com", "password": "P@ssw0rd", "favorite_genre_id": 3}]
+        {"name": "ivan", "surname": "ivanov", "email": "ivanivanov@gmail.com", "password": "P@ssw0rd", "favorite_genre_id": 3}]
 }
 # -------------------------------------------------------
 

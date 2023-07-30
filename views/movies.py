@@ -13,12 +13,6 @@ class MoviesView(Resource):
         movies = movie_service.get_all(filters)
         return movies_schema.dump(movies), 200
 
-    # @admin_required
-    # def post(self):
-    #     data = request.json
-    #     movie_service.create(data)
-    #     return "Movie added", 201
-
 
 @movie_ns.route('/<int:mid>')
 class MovieView(Resource):
@@ -28,19 +22,3 @@ class MovieView(Resource):
         if movie is None:
             return 'Movie not found', 404
         return movie_schema.dump(movie), 200
-
-    # @admin_required
-    # def put(self, mid):
-    #     data = request.json
-    #     data['id'] = mid
-    #     if movie_service.get_one_by_id(mid) is None:
-    #         return 'Movie not found', 404
-    #     movie_service.update(data)
-    #     return "Movie updated", 201
-    #
-    # @admin_required
-    # def delete(self, mid):
-    #     if movie_service.get_one_by_id(mid) is None:
-    #         return 'Movie not found', 404
-    #     movie_service.delete(mid)
-    #     return "Movie deleted", 201

@@ -1,8 +1,8 @@
 import base64
-
-from dao.user_dao import UserDAO
 import hashlib
 import hmac
+from dao.user_dao import UserDAO
+
 from helpers.constants import *
 
 
